@@ -4,29 +4,32 @@ import BlogBoxes from "@/app/components/landing/BlogBoxes";
 const BlogHeadlines = () => {
   return (
     <div className="flex justify-center px-4">
-      <div className="w-full max-w-[750px]">
+      <div className="w-full max-w-[900px]">
         <div className="text-4xl font-bold text-gray-900 text-center">
-          Latest Articles
+          ბოლოდროინდელი ბლოგები
         </div>
 
-        <div className="flex justify-between mt-10 flex-wrap gap-2">
+        <div className="flex justify-between mt-10 gap-2">
           <BlogBoxes
-            TitleText="Top 5 Fields to Explore in Computer Science"
-            Description="Wondering where to start? Here's breakdown of the most exciting domains for modern learners."
+            TitleText="ტოპ 5 სფერო, რომელიც უნდა გამოიკვლიო კომპიუტერულ მეცნიერებაში"
+            Description="ფიქრობ საიდან დაიწყო? ეს გიდი დაგეხმარება აღმოაჩინო ყველაზე საინტერესო დარგები თანამედროვე სტუდენტებისთვის."
             HeadlineText="Getting Started"
             HeadlineColor="bg-[#3E4DF1]"
+            slug="top-fields"
           />
           <BlogBoxes
-            TitleText="How AI Is Shaping the Future"
-            Description="A deep dive into how Aritificial Intelligence is changing the world."
+            TitleText="როგორ ცვლის ხელოვნური ინტელექტი მომავალს"
+            Description="სიღრმისეული გადახედვა იმაზე, თუ როგორ აყალიბებს AI ჩვენს მომავალს."
             HeadlineText="AI & ML"
             HeadlineColor="bg-[#5940CF]"
+            slug="ai-future"
           />
           <BlogBoxes
-            TitleText="Cybersecurity Basics Every Developer Should Know"
-            Description="Stay safe and build secure systems with these must-know cybersecurity concepts."
+            TitleText="კიბერ უსაფრთხოების საფუძვლები, რაც უნდა იცოდეს ყოველმა დეველოპერმა"
+            Description="დაიცავი თავი და others უსაფრთხოების აუცილებელი ცნებების ცოდნით."
             HeadlineText="Cybersecurity"
             HeadlineColor="bg-[#EC6A7E]"
+            slug="cybersecurity-basics"
           />
         </div>
       </div>

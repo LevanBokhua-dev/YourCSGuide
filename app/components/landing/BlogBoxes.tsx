@@ -1,40 +1,43 @@
 "use client";
+
+import { useRouter } from "next/navigation";
 import React from "react";
 
-interface BlogBoxesProps {
-  HeadlineText: string;
+interface BlogBoxProps {
   TitleText: string;
   Description: string;
+  HeadlineText: string;
   HeadlineColor: string;
+  slug: string;
 }
 
+const truncate = (text: string, maxLength: number) =>
+  text.length > maxLength ? text.slice(0, maxLength) + "…" : text;
+
 const BlogBoxes = ({
-  HeadlineText,
   TitleText,
   Description,
+  HeadlineText,
   HeadlineColor,
-}: BlogBoxesProps) => {
+  slug,
+}: BlogBoxProps) => {
+  const router = useRouter();
+
   return (
-    <div className="relative flex flex-col justify-between  hover:border-gray-200 hover:scale-[1.02] gap-y-3 p-6 bg-white rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-shadow min-h-[220px] w-[240px]">
-      {/* Headline Tag */}
+    <div
+      onClick={() => router.push(`/blog/${slug}`)}
+      className="flex flex-col justify-between cursor-pointer p-6 rounded-xl shadow-lg bg-white transition hover:shadow-xl w-full max-w-sm"
+    >
       <div
-        className={`absolute left-4 ${HeadlineColor} rounded-full px-3 py-1 text-xs font-semibold text-white shadow-md`}
+        className={`px-4 py-1 rounded-full text-white text-sm font-bold  ${HeadlineColor}`}
       >
         {HeadlineText}
       </div>
-
-      {/* Title + Description */}
-      <div className="flex flex-col gap-y-1 mt-10">
-        <div className="text-lg font-semibold text-gray-900 leading-5">
-          {TitleText}
-        </div>
-        <div className="text-sm leading-5 text-gray-500">{Description}</div>
-      </div>
-
-      {/* Call to Action */}
-      <div className="text-sm font-medium text-blue-600 hover:underline mt-2">
-        Read more →
-      </div>
+      <h2 className="mt-4 text-xl font-bold text-gray-900">
+        {truncate(TitleText, 20)}
+      </h2>
+      <p className="mt-2 text-gray-500">{truncate(Description, 30)}</p>
+      <p className="mt-4 text-blue-600 font-semibold">Read more →</p>
     </div>
   );
 };
