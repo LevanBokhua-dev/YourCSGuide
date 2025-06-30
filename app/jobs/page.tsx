@@ -112,7 +112,7 @@ const AllJobsPage = () => {
       {/* Call to Action */}
       <div className="max-w-4xl mx-auto mt-20 bg-blue-100 rounded-xl p-8 text-center">
         <h2 className="text-2xl font-semibold text-blue-900 mb-2">
-          Can't find your dream job?
+          Can&#39;t find your dream job?
         </h2>
         <p className="text-gray-700 mb-4">
           Upload your resume and let top companies reach out to you directly.
