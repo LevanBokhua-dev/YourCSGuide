@@ -20,8 +20,13 @@ const blogPosts: Record<string, BlogContent> = {
   },
 };
 
-export default function BlogPage({ params }: { params: { slug: string } }) {
-  const post = blogPosts[params.slug];
+export default async function BlogPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const post = blogPosts[slug];
 
   if (!post) return <div>Article not found.</div>;
 
