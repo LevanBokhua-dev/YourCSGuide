@@ -27,7 +27,7 @@ const FieldRectangles = ({
   return (
     <div
       onClick={handleClick}
-      className={`cursor-pointer flex gap-3 rounded-2xl p-4 h-24 items-center text-white ${backgroundColor} transition hover:opacity-90`}
+      className={`cursor-pointer flex gap-3 rounded-2xl p-6 h-24 items-center text-white ${backgroundColor} transition hover:opacity-90`}
     >
       <div>{icon}</div>
       <div className="flex flex-col gap-2">
