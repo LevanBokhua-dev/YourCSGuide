@@ -21,8 +21,6 @@ const JobPostForm = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log("Submitted Job:", form);
-    // Here you'd send `form` to your backend API or Firebase
-    alert("Job posted successfully!");
   };
 
   return (

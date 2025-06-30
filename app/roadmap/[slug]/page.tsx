@@ -1,4 +1,4 @@
-"use client";
+// ❌ DO NOT include "use client" here — this is a Server Component
 
 import { notFound } from "next/navigation";
 import { topics } from "@/app/roadmap/topics";
