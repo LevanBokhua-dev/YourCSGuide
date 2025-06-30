@@ -8,29 +8,39 @@ const jobs = [
     company: "TechNova",
     location: "Remote",
     tag: "VIP",
+    slug: "technova-frontend-developer",
   },
   {
     title: "AI Research Engineer",
     company: "NeuroWorks",
     location: "Berlin, Germany",
     tag: "Boosted",
+    slug: "neuroworks-frontend-developer",
   },
   {
     title: "Cybersecurity Analyst",
     company: "SecureNet",
     location: "New York, USA",
     tag: "VIP",
+    slug: "securenet-frontend-developer",
+  },
+  {
+    title: "Backend Developer",
+    company: "SecureNet",
+    location: "New York, USA",
+    tag: "VIP",
+    slug: "securenet-frontend-developer",
   },
 ];
 
 export default function JobDisplay() {
   return (
     <div className="flex justify-center gap-4 mt-10 pb-10">
-      <div className="flex flex-col items-center gap-4 w-[750px]">
+      <div className="flex flex-col items-center gap-4 w-[900px]">
         <div className="text-4xl font-bold text-gray-900 text-center">
-          Featured Job Opportunities
+          ვაკანსიები
         </div>
-        <div className="flex flex-wrap max-w-[750px] justify-between w-full mt-4">
+        <div className="flex flex-wrap max-w-[900px] justify-between w-full mt-4">
           {jobs.map((job, index) => (
             <JobBoxes
               key={index}
@@ -38,13 +48,14 @@ export default function JobDisplay() {
               company={job.company}
               location={job.location}
               tag={job.tag}
+              slug={job.slug}
             />
           ))}
         </div>
         <div>
           <Link href="/jobs">
             <button className="px-7 py-2.5 bg-gray-100 text-gray-800  text-base font-semibold  rounded-full hover:bg-gray-200 transition duration-200 mt-5">
-              View All Jobs
+              ყველა ვაკანსიის ნახვა
             </button>
           </Link>
         </div>

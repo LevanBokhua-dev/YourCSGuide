@@ -1,17 +1,28 @@
+"use client";
+
+import { useRouter } from "next/navigation";
 import React from "react";
 
 interface JobBoxProps {
   title: string;
   company: string;
   location: string;
-  tag?: string;
+  tag: string;
+  slug: string;
 }
 
-const JobBox: React.FC<JobBoxProps> = ({ title, company, location, tag }) => {
+const JobBoxes = ({ title, company, location, tag, slug }: JobBoxProps) => {
+  const router = useRouter();
+
   return (
-    <div className="flex flex-col gap-2 p-4 rounded-2xl border border-gray-200 shadow-sm">
-      <div className="bg-yellow-400 rounded-lg text-white px-3 py-1 text-xs font-bold w-fit">
-        {tag || "Standard"}
+    <div
+      onClick={() => router.push(`/jobs/${slug}`)}
+      className="flex flex-col gap-2 p-4 rounded-2xl border border-gray-200 shadow-sm cursor-pointer hover:shadow-md transition"
+    >
+      <div
+        className={`bg-yellow-400 rounded-lg text-white px-3 py-1 text-xs font-bold w-fit`}
+      >
+        {tag || "Normal"}
       </div>
       <div className="text-lg font-semibold text-black">{title}</div>
       <div className="text-sm text-gray-600">{company}</div>
@@ -20,4 +31,4 @@ const JobBox: React.FC<JobBoxProps> = ({ title, company, location, tag }) => {
   );
 };
 
-export default JobBox;
+export default JobBoxes;

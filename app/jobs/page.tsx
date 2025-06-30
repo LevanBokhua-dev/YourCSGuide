@@ -8,42 +8,49 @@ const jobs = [
     company: "TechNova",
     location: "Remote",
     tag: "VIP",
+    slug: "technova-frontend-developer",
   },
   {
     title: "AI Research Engineer",
     company: "NeuroWorks",
     location: "Berlin, Germany",
     tag: "Boosted",
+    slug: "neuroworks-frontend-developer",
   },
   {
     title: "Cybersecurity Analyst",
     company: "SecureNet",
     location: "New York, USA",
     tag: "VIP",
+    slug: "securenet-frontend-developer",
   },
   {
     title: "DevOps Engineer",
     company: "CloudBase",
     location: "London, UK",
     tag: "",
+    slug: "cloudbase-frontend-developer",
   },
   {
     title: "UI/UX Designer",
     company: "DesignHub",
     location: "Amsterdam, Netherlands",
     tag: "",
+    slug: "designhub-frontend-developer",
   },
   {
     title: "Backend Developer",
     company: "ServerCore",
     location: "Toronto, Canada",
     tag: "",
+    slug: "servercore-frontend-developer",
   },
   {
     title: "ML Engineer",
     company: "DataMorph",
     location: "Remote",
     tag: "Boosted",
+    slug: "datamorph-frontend-developer",
   },
 ];
 
@@ -88,6 +95,7 @@ const AllJobsPage = () => {
               company={job.company}
               location={job.location}
               tag={job.tag}
+              slug={job.slug}
             />
           ))
         ) : (
