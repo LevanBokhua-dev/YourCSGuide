@@ -6,9 +6,12 @@ export const useRegistrationForm = () => {
     fullName: "",
     email: "",
     password: "",
+    role: "talent",
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
+  ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
@@ -21,10 +24,14 @@ export const useRegistrationForm = () => {
     console.log("Submitted Data:", formData);
     // Add POST request logic here
   };
+  const handleRoleSelect = (role: string) => {
+    setFormData((prev) => ({ ...prev, role }));
+  };
 
   return {
     formData,
     handleChange,
     handleSubmit,
+    handleRoleSelect,
   };
 };

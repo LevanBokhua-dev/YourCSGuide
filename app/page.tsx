@@ -3,6 +3,7 @@ import BlogHeadlines from "@/app/components/landing/BlogHeadlines";
 import Image from "next/image";
 import React from "react";
 import JobDisplay from "@/app/components/jobs/jobDisplay";
+import LatestTalents from "@/app/components/talents/LatestTalents";
 
 export default function Home() {
   return (
@@ -22,6 +23,7 @@ export default function Home() {
       <Explore />
       <BlogHeadlines />
       <JobDisplay />
+      <LatestTalents />
     </div>
   );
 }

@@ -3,7 +3,8 @@ import React from "react";
 import { useRegistrationForm } from "@/app/components/registration/custom-hooks/useRegistration";
 
 const RegistrationBox = () => {
-  const { formData, handleChange, handleSubmit } = useRegistrationForm();
+  const { formData, handleChange, handleSubmit, handleRoleSelect } =
+    useRegistrationForm();
 
   return (
     <div className="flex items-center justify-center mt-10">
@@ -49,6 +50,36 @@ const RegistrationBox = () => {
             className="w-full mt-1 px-4 py-2 border border-gray-300 text-sm rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             required
           />
+        </div>
+        <div className="w-full">
+          <label className="text-sm text-gray-600 mb-2 block">
+            Registering as
+          </label>
+          <div className="flex gap-4">
+            <div
+              onClick={() => handleRoleSelect("talent")}
+              className={`flex-1 cursor-pointer p-4 border rounded-lg text-center ${
+                formData.role === "talent"
+                  ? "border-blue-500 bg-blue-50"
+                  : "border-gray-300"
+              }`}
+            >
+              <div className="text-2xl mb-1">🧑‍💻</div>
+              <div className="text-sm font-medium">Talent</div>
+            </div>
+
+            <div
+              onClick={() => handleRoleSelect("company")}
+              className={`flex-1 cursor-pointer p-4 border rounded-lg text-center ${
+                formData.role === "company"
+                  ? "border-blue-500 bg-blue-50"
+                  : "border-gray-300"
+              }`}
+            >
+              <div className="text-2xl mb-1">🏢</div>
+              <div className="text-sm font-medium">Company</div>
+            </div>
+          </div>
         </div>
 
         <button
