@@ -19,35 +19,31 @@ export default function Footer() {
               />
               YourCSGuide
             </div>
-            <div className="text-sm text-gray-800 font-semibold">About</div>
+            <div className="text-sm text-gray-800 font-semibold">
+              ინფორმაცია
+            </div>
             <a href="/about" className="text-sm text-gray-600 hover:underline">
-              About
+              ჩვენს შესახებ
             </a>
           </div>
 
           <div className="flex flex-col gap-1">
-            <div className="text-sm text-gray-800 font-semibold">Courses</div>
+            <div className="text-sm text-gray-800 font-semibold">კურსები</div>
             <a href="#" className="text-sm text-gray-600 hover:underline">
-              Web Development
+              ვებ დაპროგრამება
             </a>
             <a href="#" className="text-sm text-gray-600 hover:underline">
-              Data Science
+              მონაცემთა მეცნიერებები
             </a>
             <a href="#" className="text-sm text-gray-600 hover:underline">
-              Mobile Development
+              მობაილ დაპროგრამება
             </a>
           </div>
 
           <div className="flex flex-col gap-1">
-            <div className="text-sm text-gray-800 font-semibold">Resources</div>
+            <div className="text-sm text-gray-800 font-semibold">რესურსები</div>
             <a href="#" className="text-sm text-gray-600 hover:underline">
-              Blog
-            </a>
-            <a href="#" className="text-sm text-gray-600 hover:underline">
-              FAQs
-            </a>
-            <a href="#" className="text-sm text-gray-600 hover:underline">
-              Contact
+              ბლოგი
             </a>
           </div>
         </div>
@@ -78,7 +74,7 @@ export default function Footer() {
       </div>
 
       <div className="text-center text-sm text-gray-500 mt-8">
-        © 2025 YourCSGuide. All rights reserved.
+        © 2025 YourCSGuide. ყველა უფლება დაცულია.
       </div>
     </footer>
   );

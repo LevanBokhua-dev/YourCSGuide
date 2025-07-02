@@ -1,4 +1,3 @@
-// components/LoginBox.tsx
 "use client";
 import React from "react";
 import { useLoginForm } from "@/app/components/login/custom-hooks/useLoginForm";
@@ -39,14 +38,12 @@ const LoginBox = () => {
             required
           />
         </div>
-
         <button
           type="submit"
           className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 rounded-xl transition duration-300 mt-2"
         >
           შესვლა
         </button>
-
         <p className="text-sm text-gray-600 mt-2">
           არ გაქვს ანგარიში?{" "}
           <a
