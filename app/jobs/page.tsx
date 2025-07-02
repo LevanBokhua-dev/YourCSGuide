@@ -1,54 +1,55 @@
 "use client";
 import React, { useState } from "react";
 import JobBoxes from "@/app/components/jobs/jobBoxes";
+import { useRouter } from "next/navigation";
 
 const jobs = [
   {
-    title: "Frontend Developer",
-    company: "TechNova",
-    location: "Remote",
+    title: "ფრონტენდ დეველოპერი",
+    company: "ტექნოვა",
+    location: "დისტანციური",
     tag: "VIP",
     slug: "technova-frontend-developer",
   },
   {
-    title: "AI Research Engineer",
-    company: "NeuroWorks",
-    location: "Berlin, Germany",
+    title: "AI კვლევის ინჟინერი",
+    company: "ნეიუროვორქსი",
+    location: "ბერლინი, გერმანია",
     tag: "Boosted",
     slug: "neuroworks-frontend-developer",
   },
   {
-    title: "Cybersecurity Analyst",
-    company: "SecureNet",
-    location: "New York, USA",
+    title: "კიბერუსაფრთხოების ანალიტიკოსი",
+    company: "სექიურნეტი",
+    location: "ნიუ იორკი, აშშ",
     tag: "VIP",
     slug: "securenet-frontend-developer",
   },
   {
-    title: "DevOps Engineer",
-    company: "CloudBase",
-    location: "London, UK",
+    title: "დევოპს ინჟინერი",
+    company: "ქლაუდბეისი",
+    location: "ლონდონი, დიდი ბრიტანეთი",
     tag: "",
     slug: "cloudbase-frontend-developer",
   },
   {
-    title: "UI/UX Designer",
-    company: "DesignHub",
-    location: "Amsterdam, Netherlands",
+    title: "UI/UX დიზაინერი",
+    company: "დიზაინჰაბი",
+    location: "ამსტერდამი, ნიდერლანდები",
     tag: "",
     slug: "designhub-frontend-developer",
   },
   {
-    title: "Backend Developer",
-    company: "ServerCore",
-    location: "Toronto, Canada",
+    title: "ბექენდ დეველოპერი",
+    company: "სერვერკორი",
+    location: "ტორონტო, კანადა",
     tag: "",
     slug: "servercore-frontend-developer",
   },
   {
-    title: "ML Engineer",
-    company: "DataMorph",
-    location: "Remote",
+    title: "მქ ინჟინერი",
+    company: "დეტამორფი",
+    location: "დისტანციური",
     tag: "Boosted",
     slug: "datamorph-frontend-developer",
   },
@@ -57,7 +58,7 @@ const jobs = [
 const AllJobsPage = () => {
   const [search, setSearch] = useState("");
   const [visibleCount, setVisibleCount] = useState(6);
-
+  const router = useRouter();
   const filteredJobs = jobs.filter((job) =>
     job.title.toLowerCase().includes(search.toLowerCase()),
   );
@@ -66,18 +67,15 @@ const AllJobsPage = () => {
 
   return (
     <div className="w-full min-h-screen py-12 px-6">
-      {/* Hero Section */}
       <div className="max-w-4xl mx-auto text-center mb-12">
         <h1 className="text-4xl font-bold text-gray-900 mb-2">
-          Explore Career Opportunities
+          ნახე კარიერის შესაძლებლობები
         </h1>
-        <p className="text-gray-600">
-          Curated tech jobs tailored for learners, devs, and explorers.
-        </p>
+        <p className="text-gray-600">ტექ შესაძლებლობები, ვაკანსიები</p>
         <div className="mt-6 flex justify-center">
           <input
             type="text"
-            placeholder="Search jobs..."
+            placeholder="მოძებნე სამუშაო..."
             className="w-full max-w-md px-4 py-2 border border-gray-300 rounded-full shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
@@ -85,7 +83,6 @@ const AllJobsPage = () => {
         </div>
       </div>
 
-      {/* Job Listings */}
       <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {visibleJobs.length > 0 ? (
           visibleJobs.map((job, index) => (
@@ -105,7 +102,6 @@ const AllJobsPage = () => {
         )}
       </div>
 
-      {/* Load More */}
       {visibleCount < filteredJobs.length && (
         <div className="mt-12 text-center">
           <button
@@ -117,16 +113,18 @@ const AllJobsPage = () => {
         </div>
       )}
 
-      {/* Call to Action */}
       <div className="max-w-4xl mx-auto mt-20 bg-blue-100 rounded-xl p-8 text-center">
         <h2 className="text-2xl font-semibold text-blue-900 mb-2">
-          Can&#39;t find your dream job?
+          ვერ პოულობ სასურველ სამუშაო ადგილს ?
         </h2>
         <p className="text-gray-700 mb-4">
-          Upload your resume and let top companies reach out to you directly.
+          ატვირთე შენი რეზიუმე და კომპანიები დაგიკავშირდებიან.
         </p>
-        <button className="px-6 py-2 bg-blue-600 text-white rounded-full font-semibold hover:bg-blue-700 transition">
-          Upload Resume
+        <button
+          onClick={() => router.push("/add-as-talent")} // ✅ აქ ხდება გადამისამართება
+          className="px-6 py-2 bg-blue-600 text-white rounded-full font-semibold hover:bg-blue-700 transition"
+        >
+          რეზიუმის ატვირთვა
         </button>
       </div>
     </div>

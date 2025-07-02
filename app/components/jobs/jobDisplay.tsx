@@ -4,30 +4,30 @@ import Link from "next/link";
 
 const jobs = [
   {
-    title: "Frontend Developer",
+    title: "ფრონტენდ დეველოპერი",
     company: "TechNova",
-    location: "Remote",
+    location: "დისტანციური",
     tag: "VIP",
     slug: "technova-frontend-developer",
   },
   {
-    title: "AI Research Engineer",
+    title: "AI კვლევის ინჟინერი",
     company: "NeuroWorks",
-    location: "Berlin, Germany",
+    location: "ბერლინი, გერმანია",
     tag: "Boosted",
     slug: "neuroworks-frontend-developer",
   },
   {
-    title: "Cybersecurity Analyst",
+    title: "კიბერუსაფრთხოების ანალიტიკოსი",
     company: "SecureNet",
-    location: "New York, USA",
+    location: "ნიუ იორკი, აშშ",
     tag: "VIP",
     slug: "securenet-frontend-developer",
   },
   {
-    title: "Backend Developer",
+    title: "ბექენდ დეველოპერი",
     company: "SecureNet",
-    location: "New York, USA",
+    location: "ნიუ იორკი, აშშ",
     tag: "VIP",
     slug: "securenet-frontend-developer",
   },
@@ -40,7 +40,7 @@ export default function JobDisplay() {
         <div className="text-4xl font-bold text-gray-900 text-center">
           ვაკანსიები
         </div>
-        <div className="flex sm:flex-row flex-col w-[360px] sm:w-full sm:max-w-[700px] lg:max-w-[900px] justify-between mt-4 gap-4">
+        <div className="flex sm:flex-row flex-col w-[320px] sm:w-full sm:max-w-[700px] lg:max-w-[900px] justify-between mt-4 gap-4">
           {jobs.map((job, index) => (
             <JobBoxes
               key={index}
