@@ -4,12 +4,12 @@ import BlogBoxes from "@/app/components/landing/BlogBoxes";
 const BlogHeadlines = () => {
   return (
     <div className="flex justify-center px-4">
-      <div className="w-full max-w-[900px]">
+      <div className="w-full lg:max-w-[900px] sm:max-w-[700px] xs:max-w-[500px] max-w-[320px]">
         <div className="lg:text-4xl sm:text-3xl xs:text-2xl text-lg font-bold text-gray-900 text-center ">
           ბოლოდროინდელი ბლოგები
         </div>
 
-        <div className="sm:flex justify-between mt-10 gap-2 ">
+        <div className="xs:flex justify-between mt-10 gap-2 ">
           <div>
             <BlogBoxes
               TitleText="ტოპ 5 სფერო, რომელიც უნდა გამოიკვლიო კომპიუტერულ მეცნიერებაში"

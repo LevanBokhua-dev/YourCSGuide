@@ -8,7 +8,7 @@ const Registration = () => {
       className="relative
     "
     >
-      <div className="absolute right-0 top-[-50px] z-[-10]">
+      <div className="absolute right-0 top-[-50px] z-[-10] hidden sm:block">
         <Image
           src="/assets/CSGuide_Background_Transparent.png"
           alt="transparent background"

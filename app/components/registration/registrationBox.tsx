@@ -13,11 +13,11 @@ const RegistrationBox = () => {
         className="flex flex-col px-10 py-8 sm:shadow-2xl z-10 text-xl font-semibold rounded-2xl items-center gap-y-6 bg-white w-full max-w-md"
       >
         <div className="text-3xl font-bold text-center text-gray-800 mb-2">
-          Create Your Account
+          შექმენი ანგარიში
         </div>
 
         <div className="w-full">
-          <label className="text-sm text-gray-600">Full Name</label>
+          <label className="text-sm text-gray-600">სრული სახელი</label>
           <input
             type="text"
             name="fullName"
@@ -29,7 +29,7 @@ const RegistrationBox = () => {
         </div>
 
         <div className="w-full">
-          <label className="text-sm text-gray-600">Email Address</label>
+          <label className="text-sm text-gray-600">ელ ფოსტა</label>
           <input
             type="email"
             name="email"
@@ -41,7 +41,7 @@ const RegistrationBox = () => {
         </div>
 
         <div className="w-full">
-          <label className="text-sm text-gray-600">Password</label>
+          <label className="text-sm text-gray-600">პაროლი</label>
           <input
             type="password"
             name="password"
@@ -53,7 +53,7 @@ const RegistrationBox = () => {
         </div>
         <div className="w-full">
           <label className="text-sm text-gray-600 mb-2 block">
-            Registering as
+            რეგისტრაცია როგორც
           </label>
           <div className="flex gap-4">
             <div
@@ -65,7 +65,7 @@ const RegistrationBox = () => {
               }`}
             >
               <div className="text-2xl mb-1">🧑‍💻</div>
-              <div className="text-sm font-medium">Talent</div>
+              <div className="text-sm font-medium">ტალანტი</div>
             </div>
 
             <div
@@ -77,7 +77,7 @@ const RegistrationBox = () => {
               }`}
             >
               <div className="text-2xl mb-1">🏢</div>
-              <div className="text-sm font-medium">Company</div>
+              <div className="text-sm font-medium">კომპანია</div>
             </div>
           </div>
         </div>
@@ -86,15 +86,15 @@ const RegistrationBox = () => {
           type="submit"
           className="w-full bg-blue-600 hover:bg-blue-700 text-white  py-2 rounded-xl transition duration-300 mt-2"
         >
-          Register
+          რეგისტრაცია
         </button>
         <p className="text-sm text-gray-600 mt-2">
-          Already have an account?{" "}
+          უკვე გაქვს ანგარიში?{" "}
           <a
             href="/login"
             className="text-blue-600 hover:underline font-medium"
           >
-            Login here
+            შესვლა
           </a>
         </p>
       </form>

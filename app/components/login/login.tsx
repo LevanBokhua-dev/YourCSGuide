@@ -13,11 +13,11 @@ const LoginBox = () => {
         className="flex flex-col px-10 py-8 sm:shadow-2xl z-10 text-xl font-semibold rounded-2xl items-center gap-y-6 bg-white w-full max-w-md"
       >
         <div className="text-3xl font-bold text-center text-gray-800 mb-2">
-          Login to Your Account
+          ანგარიშში შესვლა
         </div>
 
         <div className="w-full">
-          <label className="text-sm text-gray-600">Email Address</label>
+          <label className="text-sm text-gray-600">ელ ფოსტა</label>
           <input
             type="email"
             name="email"
@@ -29,7 +29,7 @@ const LoginBox = () => {
         </div>
 
         <div className="w-full">
-          <label className="text-sm text-gray-600">Password</label>
+          <label className="text-sm text-gray-600">პაროლი</label>
           <input
             type="password"
             name="password"
@@ -44,16 +44,16 @@ const LoginBox = () => {
           type="submit"
           className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 rounded-xl transition duration-300 mt-2"
         >
-          Login
+          შესვლა
         </button>
 
         <p className="text-sm text-gray-600 mt-2">
-          Don’t have an account?{" "}
+          არ გაქვს ანგარიში?{" "}
           <a
             href="/registration"
             className="text-blue-600 hover:underline font-medium"
           >
-            Register here
+            დარეგისტრირდი
           </a>
         </p>
       </form>
