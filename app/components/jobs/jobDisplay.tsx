@@ -40,7 +40,7 @@ export default function JobDisplay() {
         <div className="text-4xl font-bold text-gray-900 text-center">
           ვაკანსიები
         </div>
-        <div className="flex flex-wrap max-w-[900px] justify-between w-full mt-4">
+        <div className="flex sm:flex-row flex-col w-[360px] sm:w-full sm:max-w-[700px] lg:max-w-[900px] justify-between mt-4 gap-4">
           {jobs.map((job, index) => (
             <JobBoxes
               key={index}

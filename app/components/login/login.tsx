@@ -10,7 +10,7 @@ const LoginBox = () => {
     <div className="flex items-center justify-center mt-10">
       <form
         onSubmit={handleSubmit}
-        className="flex flex-col px-10 py-8 shadow-2xl z-10 text-xl font-semibold rounded-2xl items-center gap-y-6 bg-white w-full max-w-md"
+        className="flex flex-col px-10 py-8 sm:shadow-2xl z-10 text-xl font-semibold rounded-2xl items-center gap-y-6 bg-white w-full max-w-md"
       >
         <div className="text-3xl font-bold text-center text-gray-800 mb-2">
           Login to Your Account

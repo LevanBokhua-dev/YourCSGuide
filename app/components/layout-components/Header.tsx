@@ -14,7 +14,7 @@ const Header = () => {
           height={32}
         />
         <span
-          className="text-lg font-bold tracking-tight text-gray-900 cursor-pointer select-none hover:text-blue-600 transition-all"
+          className="text-lg font-bold tracking-tight text-gray-900 cursor-pointer select-none hover:text-blue-600 transition-all sm:block hidden"
           onClick={() => (window.location.href = "/")}
         >
           Your<span className="text-blue-600">CS</span>Guide

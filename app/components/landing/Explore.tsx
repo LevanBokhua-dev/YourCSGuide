@@ -55,16 +55,21 @@ const fieldData = [
 const Explore = () => {
   return (
     <div className="flex justify-center w-full overflow-hidden">
-      <div className="z-10 p-10 flex items-center flex-col gap-4">
-        <h1 className="text-4xl font-bold">
-          იპოვნე შენი გზა კომპიუტერულ მეცნიერებებში
-        </h1>
-        <p className="mt-4 text-gray-600">
-          რომელი სფერო არის შენთვის საინტერესო ?
-        </p>
-        <div className="flex flex-wrap gap-2 mt-10 w-[900px]">
+      <div className="z-10 p-10 flex items-center flex-col gap-4 justify-center">
+        <div className="text-center max-w-[300px] sm:max-w-[600px] lg:max-w-[1000px]">
+          <h1 className="text-4xl font-bold">
+            იპოვნე შენი გზა კომპიუტერულ მეცნიერებებში
+          </h1>
+          <p className="mt-4 text-gray-600">
+            რომელი სფერო არის შენთვის საინტერესო ?
+          </p>
+        </div>
+        <div className="flex items-center flex-col sm:flex-row sm:flex-wrap gap-2 mt-10 lg:w-[900px] sm:w-[600px] xs:w-[440px] w-[320px]">
           {fieldData.map((field, index) => (
-            <div key={index} className="w-[calc((100%-16px)/2)]">
+            <div
+              key={index}
+              className="lg:w-[calc((100%-16px)/2)] sm:w-[calc((100%-16px)/2)] w-[calc((100%-16px))]"
+            >
               <FieldRectangles
                 icon={field.icon}
                 heading={field.heading}
