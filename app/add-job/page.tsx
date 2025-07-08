@@ -19,7 +19,7 @@ const JobPostForm = () => {
     if (user.role !== "COMPANY") {
       router.replace("/unauthorized");
     }
-  }, []);
+  }, [router]);
   const [form, setForm] = useState({
     title: "",
     description: "",
