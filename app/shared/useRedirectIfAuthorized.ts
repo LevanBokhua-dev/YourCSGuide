@@ -10,5 +10,5 @@ export const useRedirectIfLoggedIn = () => {
     if (user) {
       router.replace("/user");
     }
-  }, []);
+  }, [router]);
 };

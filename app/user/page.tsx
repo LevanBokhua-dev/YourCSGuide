@@ -19,7 +19,7 @@ const UserPage = () => {
     const parsedUser = JSON.parse(storedUser);
     setUsername(parsedUser.username);
     setRole(parsedUser.role);
-  }, []);
+  }, [router]);
 
   const handleAddTalent = () => {
     router.push("/add-as-talent");

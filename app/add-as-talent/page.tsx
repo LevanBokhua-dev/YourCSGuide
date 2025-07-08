@@ -20,7 +20,7 @@ export default function TalentPage() {
     if (user.role !== "TALENT") {
       router.replace("/unauthorized");
     }
-  }, []);
+  }, [router]);
 
   return (
     <div className="py-10 px-6">
