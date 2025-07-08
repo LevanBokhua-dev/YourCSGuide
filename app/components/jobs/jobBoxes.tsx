@@ -20,7 +20,7 @@ const JobBoxes = ({ title, company, location, tag, slug }: JobBoxProps) => {
       className="flex flex-col gap-2 p-4 rounded-2xl border border-gray-200 shadow-sm cursor-pointer hover:shadow-md transition"
     >
       <div
-        className={`bg-yellow-400 rounded-lg text-white px-3 py-1 text-xs font-bold w-fit`}
+        className={`bg-blue-300 rounded-lg text-white px-3 py-1 text-xs font-bold w-fit`}
       >
         {tag || "Normal"}
       </div>

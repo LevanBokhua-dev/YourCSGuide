@@ -27,8 +27,21 @@ const FieldRectangles = ({
   return (
     <div
       onClick={handleClick}
-      className={`cursor-pointer flex gap-3 rounded-2xl p-6 lg:h-24 sm:h-32 items-center text-white ${backgroundColor} transition hover:opacity-90`}
+      className={`relative cursor-pointer flex gap-3 p-6 lg:h-24 sm:h-32 items-center text-white ${backgroundColor} transition hover:opacity-90 border-2 border-dashed border-white rounded-md`}
     >
+      <div className="absolute top-[-10px] left-[-10px] text-white text-lg font-bold">
+        +
+      </div>
+      <div className="absolute top-[-10px] right-[-10px] text-white text-lg font-bold">
+        +
+      </div>
+      <div className="absolute bottom-[-10px] left-[-10px] text-white text-lg font-bold">
+        +
+      </div>
+      <div className="absolute bottom-[-10px] right-[-10px] text-white text-lg font-bold">
+        +
+      </div>
+
       <div>{icon}</div>
       <div className="flex flex-col gap-2">
         <div className="text-lg leading-5 font-bold">{heading}</div>

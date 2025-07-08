@@ -1,7 +1,12 @@
 "use client";
 import { useState } from "react";
+import { registerUser } from "@/app/services/registration";
+import { useRouter } from "next/navigation";
+import { loginUser } from "@/app/services/auth";
 
 export const useRegistrationForm = () => {
+  const router = useRouter();
+
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -19,10 +24,30 @@ export const useRegistrationForm = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Submitted Data:", formData);
-    // Add POST request logic here
+    try {
+      const data = await registerUser(formData);
+      await loginUser({
+        username: formData.fullName,
+        password: formData.password,
+      });
+      localStorage.setItem(
+        "user",
+        JSON.stringify({
+          username: formData.fullName,
+          role: "TALENT",
+        }),
+      );
+      console.log("Registered:", data);
+      router.push("/user");
+    } catch (error) {
+      if (error instanceof Error) {
+        console.error("Registration error:", error.message);
+      } else {
+        console.error("Unknown error occurred during registration");
+      }
+    }
   };
   const handleRoleSelect = (role: string) => {
     setFormData((prev) => ({ ...prev, role }));

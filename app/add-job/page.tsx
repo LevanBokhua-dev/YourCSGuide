@@ -1,8 +1,25 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 
 const JobPostForm = () => {
+  const router = useRouter();
+
+  useEffect(() => {
+    const storedUser = localStorage.getItem("user");
+
+    if (!storedUser) {
+      router.replace("/login");
+      return;
+    }
+
+    const user = JSON.parse(storedUser);
+
+    if (user.role !== "COMPANY") {
+      router.replace("/unauthorized");
+    }
+  }, []);
   const [form, setForm] = useState({
     title: "",
     description: "",

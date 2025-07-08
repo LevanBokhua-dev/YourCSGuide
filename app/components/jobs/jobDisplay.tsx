@@ -37,9 +37,25 @@ export default function JobDisplay() {
   return (
     <div className="flex justify-center gap-4 mt-10 pb-10">
       <div className="flex flex-col items-center gap-4 w-[900px]">
-        <div className="text-4xl font-bold text-gray-900 text-center">
-          ვაკანსიები
+        <div className="flex justify-center mt-8">
+          <div className="lg:w-[900px] sm:w-[700px] xs:w-[500px] w-[320px] relative inline-block border-2 border-dashed border-blue-300 p-4 rounded-md text-center bg-[#EAF8FF] ">
+            <div className="absolute top-[-16px] left-[-6px] text-blue-400 text-xl font-bold">
+              +
+            </div>
+            <div className="absolute top-[-16px] right-[-6px] text-blue-400 text-xl font-bold">
+              +
+            </div>
+            <div className="absolute bottom-[-16px] left-[-6px] text-blue-400 text-xl font-bold">
+              +
+            </div>
+            <div className="absolute bottom-[-16px] right-[-6px] text-blue-400 text-xl font-bold">
+              +
+            </div>
+
+            <div className="text-4xl font-bold text-gray-900">ვაკანსიები</div>
+          </div>
         </div>
+
         <div className="flex sm:flex-row flex-col w-[320px] sm:w-full sm:max-w-[700px] lg:max-w-[900px] justify-between mt-4 gap-4">
           {jobs.map((job, index) => (
             <JobBoxes

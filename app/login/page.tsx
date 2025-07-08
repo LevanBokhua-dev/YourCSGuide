@@ -1,8 +1,11 @@
+"use client";
 import React from "react";
 import Image from "next/image";
 import Login from "@/app/components/login/login";
+import { useRedirectIfLoggedIn } from "@/app/shared/useRedirectIfAuthorized";
 
 const Registration = () => {
+  useRedirectIfLoggedIn();
   return (
     <div
       className="relative

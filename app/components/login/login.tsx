@@ -18,9 +18,9 @@ const LoginBox = () => {
         <div className="w-full">
           <label className="text-sm text-gray-600">ელ ფოსტა</label>
           <input
-            type="email"
-            name="email"
-            value={formData.email}
+            type="text"
+            name="username"
+            value={formData.username}
             onChange={handleChange}
             className="w-full mt-1 px-4 py-2 border  text-smborder-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             required

@@ -18,6 +18,112 @@ type Topic = {
 };
 
 export const topics: Record<string, Topic> = {
+  "computer-architecture": {
+    title: "კომპიუტერის არქიტექტურა და საოპერაციო სისტემები",
+    description: "გაიგე როგორ მუშაობს კომპიუტერი შიგნიდან",
+    icon: Brain,
+    color: "bg-gray-700",
+    roadmap: [
+      {
+        title: "CPU და მეხსიერება",
+        description: "გაიგე კომპიუტერის ძირითადი კომპონენტები",
+        details:
+          "CPU, RAM, რეგისტრები, instruction cycle და cache-ის მნიშვნელობა.",
+        resource:
+          "https://www.geeksforgeeks.org/computer-organization-and-architecture-tutorials/",
+        category: "fundamentals",
+        estimatedTime: "3-5 დღე",
+      },
+      {
+        title: "საოპერაციო სისტემის საფუძვლები",
+        description: "როგორ მართავს OS პროცესებს და რესურსებს",
+        details:
+          "პროცესები, თრედები, multitasking, schedulers და memory management.",
+        resource:
+          "https://www.geeksforgeeks.org/introduction-of-operating-system-set-1/",
+        category: "fundamentals",
+        estimatedTime: "3-5 დღე",
+      },
+    ],
+  },
+  "theory-of-computation": {
+    title: "გამოთვლადობის თეორია",
+    description: "გამოთვლადობის საზღვრები და ალგორითმების თეორიული საფუძვლები",
+    icon: Brain,
+    color: "bg-blue-800",
+    roadmap: [
+      {
+        title: "ავტომატები და ენა",
+        description: "დაიწყე ავტომატების თეორიით",
+        details:
+          "Finite State Machines (FSM), Regular expressions, და ციფრული ენები.",
+        resource: "https://www.javatpoint.com/theory-of-computation",
+        category: "fundamentals",
+        estimatedTime: "2-3 დღე",
+      },
+      {
+        title: "გამოთვლადობა და Turing მანქანები",
+        description: "შესაძლებელია თუ არა ამ ამოცანის ამოხსნა?",
+        details: "Turing Machines, Halting Problem და Church-Turing thesis.",
+        resource:
+          "https://www.khanacademy.org/computing/computer-science/algorithms",
+        category: "fundamentals",
+        estimatedTime: "3-5 დღე",
+      },
+    ],
+  },
+  "software-engineering": {
+    title: "პროგრამული უზრუნველყოფის ინჟინერია",
+    description: "ისწავლე როგორ ავაშენოთ დიდი და სტაბილური სისტემები",
+    icon: Brain,
+    color: "bg-cyan-600",
+    roadmap: [
+      {
+        title: "ვერსიის კონტროლი",
+        description: "ისწავლე Git და GitHub-ს გამოყენება",
+        details:
+          "ბაზისური ბრძანებები, branch-ები, pull request-ები და თანამშრომლობა.",
+        resource: "https://www.atlassian.com/git/tutorials",
+        category: "tools",
+        estimatedTime: "2-3 დღე",
+      },
+      {
+        title: "ტესტირება და დებაგი",
+        description: "როგორ ვამოწმოთ ჩვენი კოდი სწორად მუშაობს?",
+        details: "Unit testing, integration testing, debugger-ების გამოყენება.",
+        resource: "https://www.geeksforgeeks.org/software-testing-basics/",
+        category: "tools",
+        estimatedTime: "2-3 დღე",
+      },
+    ],
+  },
+  hci: {
+    title: "ადამიანი-კომპიუტერის ინტერაქცია",
+    description: "UX დიზაინი და ინტერფეისის აგების ფსიქოლოგია",
+    icon: Brain,
+    color: "bg-pink-600",
+    roadmap: [
+      {
+        title: "UX/UI საფუძვლები",
+        description: "შექმენი მარტივად გამოსაყენებელი ინტერფეისები",
+        details: "ცნებები: Feedback, Consistency, Affordance, Accessibility.",
+        resource:
+          "https://www.interaction-design.org/literature/topics/human-computer-interaction",
+        category: "fundamentals",
+        estimatedTime: "2-3 დღე",
+      },
+      {
+        title: "ტესტირება და გაუმჯობესება",
+        description:
+          "მომხმარებლის ფიდბექის გამოყენება დიზაინის გაუმჯობესებისთვის",
+        details: "Usability testing, A/B ტესტირება და ჰეპურისტიკული შეფასება.",
+        resource: "https://www.nngroup.com/articles/ux-research-cheat-sheet/",
+        category: "tools",
+        estimatedTime: "1-2 დღე",
+      },
+    ],
+  },
+
   "web-development": {
     title: "ვებ განვითარების გზა",
     description: "გზამკვლევი ფრონტენდის, ბექენდის ან DevOps-ის კარიერისთვის",

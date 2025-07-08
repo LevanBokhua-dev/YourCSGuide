@@ -121,7 +121,7 @@ const AllJobsPage = () => {
           ატვირთე შენი რეზიუმე და კომპანიები დაგიკავშირდებიან.
         </p>
         <button
-          onClick={() => router.push("/add-as-talent")} // ✅ აქ ხდება გადამისამართება
+          onClick={() => router.push("/add-as-talent")}
           className="px-6 py-2 bg-blue-600 text-white rounded-full font-semibold hover:bg-blue-700 transition"
         >
           რეზიუმის ატვირთვა
