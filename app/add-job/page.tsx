@@ -47,8 +47,7 @@ const JobPostForm = () => {
         companyName: form.company,
         companyEmail: form.email,
       });
-
-      alert("Job posted successfully!");
+      router.push("/jobs");
     } catch (err) {
       console.error(err);
       alert("Error posting job");

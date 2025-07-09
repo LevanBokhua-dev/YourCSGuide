@@ -19,3 +19,13 @@ export const postJob = async (jobData: {
 
   return res.json();
 };
+export const getJobs = async () => {
+  const res = await fetch("http://localhost:8080/api/jobs");
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch jobs");
+  }
+
+  const data = await res.json();
+  return data.content;
+};

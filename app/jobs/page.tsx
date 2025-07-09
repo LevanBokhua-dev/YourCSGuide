@@ -1,64 +1,33 @@
 "use client";
-import React, { useState } from "react";
+
+import React, { useState, useEffect } from "react";
 import JobBoxes from "@/app/components/jobs/jobBoxes";
 import { useRouter } from "next/navigation";
-
-const jobs = [
-  {
-    title: "ფრონტენდ დეველოპერი",
-    company: "ტექნოვა",
-    location: "დისტანციური",
-    tag: "VIP",
-    slug: "technova-frontend-developer",
-  },
-  {
-    title: "AI კვლევის ინჟინერი",
-    company: "ნეიუროვორქსი",
-    location: "ბერლინი, გერმანია",
-    tag: "Boosted",
-    slug: "neuroworks-frontend-developer",
-  },
-  {
-    title: "კიბერუსაფრთხოების ანალიტიკოსი",
-    company: "სექიურნეტი",
-    location: "ნიუ იორკი, აშშ",
-    tag: "VIP",
-    slug: "securenet-frontend-developer",
-  },
-  {
-    title: "დევოპს ინჟინერი",
-    company: "ქლაუდბეისი",
-    location: "ლონდონი, დიდი ბრიტანეთი",
-    tag: "",
-    slug: "cloudbase-frontend-developer",
-  },
-  {
-    title: "UI/UX დიზაინერი",
-    company: "დიზაინჰაბი",
-    location: "ამსტერდამი, ნიდერლანდები",
-    tag: "",
-    slug: "designhub-frontend-developer",
-  },
-  {
-    title: "ბექენდ დეველოპერი",
-    company: "სერვერკორი",
-    location: "ტორონტო, კანადა",
-    tag: "",
-    slug: "servercore-frontend-developer",
-  },
-  {
-    title: "მქ ინჟინერი",
-    company: "დეტამორფი",
-    location: "დისტანციური",
-    tag: "Boosted",
-    slug: "datamorph-frontend-developer",
-  },
-];
+import { getJobs } from "@/app/services/jobs";
+import { Job } from "@/app/jobs/types";
 
 const AllJobsPage = () => {
   const [search, setSearch] = useState("");
   const [visibleCount, setVisibleCount] = useState(6);
+  const [jobs, setJobs] = useState<Job[]>([]);
+  const [loading, setLoading] = useState(true);
   const router = useRouter();
+
+  useEffect(() => {
+    const fetchJobs = async () => {
+      try {
+        const fetchedJobs = await getJobs();
+        setJobs(fetchedJobs);
+      } catch (error) {
+        console.error("Failed to fetch jobs:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchJobs();
+  }, []);
+
   const filteredJobs = jobs.filter((job) =>
     job.title.toLowerCase().includes(search.toLowerCase()),
   );
@@ -83,26 +52,30 @@ const AllJobsPage = () => {
         </div>
       </div>
 
-      <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {visibleJobs.length > 0 ? (
-          visibleJobs.map((job, index) => (
-            <JobBoxes
-              key={index}
-              title={job.title}
-              company={job.company}
-              location={job.location}
-              tag={job.tag}
-              slug={job.slug}
-            />
-          ))
-        ) : (
-          <div className="col-span-full text-center text-gray-500 text-sm">
-            No jobs match your search.
-          </div>
-        )}
-      </div>
+      {loading ? (
+        <p className="text-center text-gray-500">Loading...</p>
+      ) : (
+        <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {visibleJobs.length > 0 ? (
+            visibleJobs.map((job, index) => (
+              <JobBoxes
+                key={index}
+                title={job.title}
+                company={job.companyName}
+                location={job.salaryRange}
+                tag={job.description}
+                slug={`${job.id}-${job.title.toLowerCase().replace(/\s+/g, "-")}`}
+              />
+            ))
+          ) : (
+            <div className="col-span-full text-center text-gray-500 text-sm">
+              No jobs match your search.
+            </div>
+          )}
+        </div>
+      )}
 
-      {visibleCount < filteredJobs.length && (
+      {!loading && visibleCount < filteredJobs.length && (
         <div className="mt-12 text-center">
           <button
             onClick={() => setVisibleCount((prev) => prev + 6)}
