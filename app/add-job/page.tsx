@@ -2,9 +2,18 @@
 
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import { postJob } from "@/app/services/jobs";
 
 const JobPostForm = () => {
   const router = useRouter();
+
+  const [form, setForm] = useState({
+    title: "",
+    description: "",
+    salary: "",
+    company: "",
+    email: "",
+  });
 
   useEffect(() => {
     const storedUser = localStorage.getItem("user");
@@ -20,13 +29,6 @@ const JobPostForm = () => {
       router.replace("/unauthorized");
     }
   }, [router]);
-  const [form, setForm] = useState({
-    title: "",
-    description: "",
-    salary: "",
-    company: "",
-    email: "",
-  });
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -35,9 +37,22 @@ const JobPostForm = () => {
     setForm((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Submitted Job:", form);
+    try {
+      await postJob({
+        title: form.title,
+        description: form.description,
+        salaryRange: form.salary,
+        companyName: form.company,
+        companyEmail: form.email,
+      });
+
+      alert("Job posted successfully!");
+    } catch (err) {
+      console.error(err);
+      alert("Error posting job");
+    }
   };
 
   return (

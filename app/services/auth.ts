@@ -7,7 +7,7 @@ export const loginUser = async (credentials: {
     headers: {
       "Content-Type": "application/json",
     },
-    credentials: "include", // if using cookies/session
+    credentials: "include",
     body: JSON.stringify(credentials),
   });
 
@@ -16,5 +16,5 @@ export const loginUser = async (credentials: {
     throw new Error(`Login failed: ${err}`);
   }
 
-  return true;
+  return response.json();
 };

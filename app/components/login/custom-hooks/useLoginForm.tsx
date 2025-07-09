@@ -22,17 +22,19 @@ export const useLoginForm = () => {
     e.preventDefault();
 
     try {
-      await loginUser({
+      const user = await loginUser({
         username: formData.username,
         password: formData.password,
       });
+
       localStorage.setItem(
         "user",
         JSON.stringify({
-          username: formData.username,
-          role: "TALENT",
+          username: user.username,
+          role: user.role,
         }),
       );
+
       router.push("/user");
     } catch (err) {
       console.error("Login failed:", (err as Error).message);
