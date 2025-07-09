@@ -1,15 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-
-interface Talent {
-  firstName: string;
-  lastName: string;
-  introduction: string;
-  experience: string;
-  skills: string[];
-  email: string;
-}
+import { createTalentProfile } from "@/app/services/profiles";
 
 export default function AddTalentForm() {
   const [formData, setFormData] = useState({
@@ -21,31 +13,38 @@ export default function AddTalentForm() {
     email: "",
   });
 
-  const [submittedTalent, setSubmittedTalent] = useState<Talent | null>(null);
-
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    const newTalent: Talent = {
-      ...formData,
-      skills: formData.skills.split(",").map((skill) => skill.trim()),
+    const payload = {
+      name: formData.firstName,
+      surname: formData.lastName,
+      description: formData.introduction,
+      experience: formData.experience,
+      skills: formData.skills.split(",").map((s) => s.trim()),
+      email: formData.email,
     };
 
-    setSubmittedTalent(newTalent);
-    setFormData({
-      firstName: "",
-      lastName: "",
-      introduction: "",
-      experience: "",
-      skills: "",
-      email: "",
-    });
+    try {
+      await createTalentProfile(payload);
+      setFormData({
+        firstName: "",
+        lastName: "",
+        introduction: "",
+        experience: "",
+        skills: "",
+        email: "",
+      });
+    } catch (error) {
+      alert("Failed to submit profile");
+      console.error(error);
+    }
   };
 
   return (
@@ -110,25 +109,6 @@ export default function AddTalentForm() {
           დამატება
         </button>
       </form>
-
-      {submittedTalent && (
-        <div className="mt-10 bg-gray-50 p-6 rounded border">
-          <h3 className="text-xl font-semibold mb-2">
-            დამატებული ტალანტი: {submittedTalent.firstName}{" "}
-            {submittedTalent.lastName}
-          </h3>
-          <p className="text-gray-700">{submittedTalent.introduction}</p>
-          <p className="text-sm text-gray-500 mt-1">
-            {submittedTalent.experience}
-          </p>
-          <p className="text-sm text-gray-600 mt-1">
-            უნარ-ჩვევები: {submittedTalent.skills.join(", ")}
-          </p>
-          <p className="text-sm mt-1 text-blue-600 underline">
-            {submittedTalent.email}
-          </p>
-        </div>
-      )}
     </div>
   );
 }

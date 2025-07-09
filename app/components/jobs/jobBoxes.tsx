@@ -17,7 +17,7 @@ const JobBoxes = ({ title, company, location, tag, slug }: JobBoxProps) => {
   return (
     <div
       onClick={() => router.push(`/jobs/${slug}`)}
-      className="flex flex-col gap-2 p-4 rounded-2xl border border-gray-200 shadow-sm cursor-pointer hover:shadow-md transition"
+      className="flex flex-col justify-between gap-2 p-4 rounded-2xl border border-gray-200 shadow-sm cursor-pointer hover:shadow-md transition h-40 w-44"
     >
       <div
         className={`bg-blue-300 rounded-lg text-white px-3 py-1 text-xs font-bold w-fit`}

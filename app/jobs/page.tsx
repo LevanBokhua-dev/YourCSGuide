@@ -55,7 +55,7 @@ const AllJobsPage = () => {
       {loading ? (
         <p className="text-center text-gray-500">Loading...</p>
       ) : (
-        <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="max-w-5xl mx-auto flex flex-wrap justify-center gap-6">
           {visibleJobs.length > 0 ? (
             visibleJobs.map((job, index) => (
               <JobBoxes
@@ -63,12 +63,12 @@ const AllJobsPage = () => {
                 title={job.title}
                 company={job.companyName}
                 location={job.salaryRange}
-                tag={job.description}
+                tag="ვაკანსია"
                 slug={`${job.id}-${job.title.toLowerCase().replace(/\s+/g, "-")}`}
               />
             ))
           ) : (
-            <div className="col-span-full text-center text-gray-500 text-sm">
+            <div className="w-full text-center text-gray-500 text-sm">
               No jobs match your search.
             </div>
           )}

@@ -1,39 +1,12 @@
 import React from "react";
 import JobBoxes from "@/app/components/jobs/jobBoxes";
 import Link from "next/link";
+import { getJobs } from "@/app/services/jobs"; // import service
+import type { Job } from "@/app/jobs/types";
+export default async function JobDisplay() {
+  const jobs = await getJobs(); // fetch real jobs
+  const latestJobs = jobs.slice(0, 4); // show only a few (like before)
 
-const jobs = [
-  {
-    title: "ფრონტენდ დეველოპერი",
-    company: "TechNova",
-    location: "დისტანციური",
-    tag: "VIP",
-    slug: "technova-frontend-developer",
-  },
-  {
-    title: "AI კვლევის ინჟინერი",
-    company: "NeuroWorks",
-    location: "ბერლინი, გერმანია",
-    tag: "Boosted",
-    slug: "neuroworks-frontend-developer",
-  },
-  {
-    title: "კიბერუსაფრთხოების ანალიტიკოსი",
-    company: "SecureNet",
-    location: "ნიუ იორკი, აშშ",
-    tag: "VIP",
-    slug: "securenet-frontend-developer",
-  },
-  {
-    title: "ბექენდ დეველოპერი",
-    company: "SecureNet",
-    location: "ნიუ იორკი, აშშ",
-    tag: "VIP",
-    slug: "securenet-frontend-developer",
-  },
-];
-
-export default function JobDisplay() {
   return (
     <div className="flex justify-center gap-4 mt-10 pb-10">
       <div className="flex flex-col items-center gap-4 w-[900px]">
@@ -57,17 +30,18 @@ export default function JobDisplay() {
         </div>
 
         <div className="flex sm:flex-row flex-col w-[320px] sm:w-full sm:max-w-[700px] lg:max-w-[900px] justify-between mt-4 gap-4">
-          {jobs.map((job, index) => (
+          {latestJobs.map((job: Job) => (
             <JobBoxes
-              key={index}
+              key={job.id}
               title={job.title}
-              company={job.company}
-              location={job.location}
-              tag={job.tag}
-              slug={job.slug}
+              company={job.companyName}
+              location={job.salaryRange}
+              tag="JOB"
+              slug={`${job.id}-${job.title.toLowerCase().replace(/\s+/g, "-")}`}
             />
           ))}
         </div>
+
         <div>
           <Link href="/jobs">
             <button className="px-7 py-2.5 bg-gray-100 text-gray-800  text-base font-semibold  rounded-full hover:bg-gray-200 transition duration-200 mt-5">
