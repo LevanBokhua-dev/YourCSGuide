@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { useRegistrationForm } from "@/app/components/registration/custom-hooks/useRegistration";
+import { useRegistrationForm } from "@/components/registration/custom-hooks/useRegistration";
 
 const RegistrationBox = () => {
   const { formData, handleChange, handleSubmit, handleRoleSelect } =

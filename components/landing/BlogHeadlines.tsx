@@ -1,5 +1,5 @@
 import React from "react";
-import BlogBoxes from "@/app/components/landing/BlogBoxes";
+import BlogBoxes from "@/components/landing/BlogBoxes";
 
 const BlogHeadlines = () => {
   return (

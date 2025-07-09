@@ -1,5 +1,5 @@
-import TalentCard from "@/app/components/talents/TalentCard";
-import { getAllTalents } from "@/app/services/profiles";
+import TalentCard from "@/components/talents/TalentCard";
+import { getAllTalents } from "@/services/profiles";
 
 export default async function TalentPage() {
   const profiles = await getAllTalents();

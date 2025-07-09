@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { getJobById } from "@/app/services/jobs";
+import { getJobById } from "@/services/jobs";
 
 export default async function JobDetail({
   params,

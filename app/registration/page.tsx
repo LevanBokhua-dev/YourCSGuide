@@ -1,8 +1,8 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import RegistrationBox from "@/app/components/registration/registrationBox";
-import { useRedirectIfLoggedIn } from "@/app/shared/useRedirectIfAuthorized";
+import RegistrationBox from "@/components/registration/registrationBox";
+import { useRedirectIfLoggedIn } from "@/shared/useRedirectIfAuthorized";
 
 const Registration = () => {
   useRedirectIfLoggedIn();

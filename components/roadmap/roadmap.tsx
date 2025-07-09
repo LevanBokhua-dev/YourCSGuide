@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import StepModal from "@/app/components/roadmap/stepModal";
+import StepModal from "@/components/roadmap/stepModal";
 import type { Step } from "@/app/roadmap/topics";
 
 interface RoadmapProps {

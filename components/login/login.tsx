@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { useLoginForm } from "@/app/components/login/custom-hooks/useLoginForm";
+import { useLoginForm } from "@/components/login/custom-hooks/useLoginForm";
 
 const LoginBox = () => {
   const { formData, handleChange, handleSubmit } = useLoginForm();

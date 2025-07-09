@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
-import AddTalentForm from "@/app/components/talents/AddTalentForm";
+import AddTalentForm from "@/components/talents/AddTalentForm";
 
 export default function TalentPage() {
   const router = useRouter();

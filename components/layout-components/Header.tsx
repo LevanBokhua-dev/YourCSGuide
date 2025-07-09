@@ -2,8 +2,8 @@
 
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { useAuthStatus } from "@/app/shared/useAuthStatus";
-import { authStore } from "@/app/shared/authStore";
+import { useAuthStatus } from "@/shared/useAuthStatus";
+import { authStore } from "@/shared/authStore";
 
 const Header = () => {
   const isLoggedIn = useAuthStatus();

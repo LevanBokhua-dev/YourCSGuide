@@ -1,7 +1,7 @@
 import React from "react";
-import JobBoxes from "@/app/components/jobs/jobBoxes";
+import JobBoxes from "@/components/jobs/jobBoxes";
 import Link from "next/link";
-import { getJobs } from "@/app/services/jobs";
+import { getJobs } from "@/services/jobs";
 import type { Job } from "@/app/jobs/types";
 export default async function JobDisplay() {
   const jobs = await getJobs();

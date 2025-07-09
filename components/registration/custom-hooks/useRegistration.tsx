@@ -1,8 +1,8 @@
 "use client";
 import { useState } from "react";
-import { registerUser } from "@/app/services/registration";
+import { registerUser } from "@/services/registration";
 import { useRouter } from "next/navigation";
-import { loginUser } from "@/app/services/auth";
+import { loginUser } from "@/services/auth";
 
 export const useRegistrationForm = () => {
   const router = useRouter();

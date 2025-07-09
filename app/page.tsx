@@ -1,9 +1,9 @@
-import Explore from "@/app/components/landing/Explore";
-import BlogHeadlines from "@/app/components/landing/BlogHeadlines";
+import Explore from "@/components/landing/Explore";
+import BlogHeadlines from "@/components/landing/BlogHeadlines";
 import Image from "next/image";
 import React from "react";
-import JobDisplay from "@/app/components/jobs/jobDisplay";
-import LatestTalents from "@/app/components/talents/LatestTalents";
+import JobDisplay from "@/components/jobs/jobDisplay";
+import LatestTalents from "@/components/talents/LatestTalents";
 
 export default function Home() {
   return (

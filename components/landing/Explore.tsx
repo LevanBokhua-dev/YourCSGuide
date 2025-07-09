@@ -9,7 +9,7 @@ import {
   WrenchScrewdriverIcon,
   UserGroupIcon,
 } from "@heroicons/react/24/solid";
-import FieldRectangles from "@/app/components/landing/FieldRectangles";
+import FieldRectangles from "@/components/landing/FieldRectangles";
 
 export const fieldData = [
   {

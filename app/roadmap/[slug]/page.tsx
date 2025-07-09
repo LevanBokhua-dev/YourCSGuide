@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import { topics } from "@/app/roadmap/topics";
-import Roadmap from "@/app/components/roadmap/roadmap";
-import TopicHeader from "@/app/components/roadmap/topicHeader";
+import Roadmap from "@/components/roadmap/roadmap";
+import TopicHeader from "@/components/roadmap/topicHeader";
 import type { Step } from "@/app/roadmap/topics";
 
 export default async function TopicPage({

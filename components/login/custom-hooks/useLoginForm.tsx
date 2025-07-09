@@ -1,8 +1,8 @@
 "use client";
 import { useState } from "react";
-import { loginUser } from "@/app/services/auth";
+import { loginUser } from "@/services/auth";
 import { useRouter } from "next/navigation";
-import { authStore } from "@/app/shared/authStore";
+import { authStore } from "@/shared/authStore";
 
 export const useLoginForm = () => {
   const router = useRouter();

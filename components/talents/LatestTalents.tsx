@@ -1,6 +1,6 @@
 import Link from "next/link";
-import TalentCard from "@/app/components/talents/TalentCard";
-import { getLatestTalents } from "@/app/services/profiles";
+import TalentCard from "@/components/talents/TalentCard";
+import { getLatestTalents } from "@/services/profiles";
 
 export default async function LatestTalents() {
   const talents = await getLatestTalents(2);

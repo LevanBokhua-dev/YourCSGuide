@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { postJob } from "@/app/services/jobs";
+import { postJob } from "@/services/jobs";
 
 const JobPostForm = () => {
   const router = useRouter();

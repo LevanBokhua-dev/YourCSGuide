@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { createTalentProfile } from "@/app/services/profiles";
+import { createTalentProfile } from "@/services/profiles";
 
 export default function AddTalentForm() {
   const [formData, setFormData] = useState({
