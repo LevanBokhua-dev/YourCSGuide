@@ -1,21 +1,17 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { useAuthStatus } from "@/app/shared/useAuthStatus";
+import { authStore } from "@/app/shared/authStore";
 
 const Header = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const isLoggedIn = useAuthStatus();
   const router = useRouter();
 
-  useEffect(() => {
-    const user = localStorage.getItem("user");
-    setIsLoggedIn(!!user);
-  }, []);
-
   const handleLogout = () => {
-    localStorage.removeItem("user");
-    router.push("/login"); // or router.refresh() if you want a full reload
+    authStore.logout();
+    router.push("/");
   };
 
   return (

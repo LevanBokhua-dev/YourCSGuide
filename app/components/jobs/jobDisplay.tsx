@@ -1,11 +1,11 @@
 import React from "react";
 import JobBoxes from "@/app/components/jobs/jobBoxes";
 import Link from "next/link";
-import { getJobs } from "@/app/services/jobs"; // import service
+import { getJobs } from "@/app/services/jobs";
 import type { Job } from "@/app/jobs/types";
 export default async function JobDisplay() {
-  const jobs = await getJobs(); // fetch real jobs
-  const latestJobs = jobs.slice(0, 4); // show only a few (like before)
+  const jobs = await getJobs();
+  const latestJobs = jobs.slice(0, 4);
 
   return (
     <div className="flex justify-center gap-4 mt-10 pb-10">
@@ -36,7 +36,7 @@ export default async function JobDisplay() {
               title={job.title}
               company={job.companyName}
               location={job.salaryRange}
-              tag="JOB"
+              tag="ვაკანსია"
               slug={`${job.id}-${job.title.toLowerCase().replace(/\s+/g, "-")}`}
             />
           ))}

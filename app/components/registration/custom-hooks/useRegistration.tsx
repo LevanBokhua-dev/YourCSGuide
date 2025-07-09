@@ -27,7 +27,7 @@ export const useRegistrationForm = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const data = await registerUser(formData);
+      await registerUser(formData);
       await loginUser({
         username: formData.fullName,
         password: formData.password,
@@ -39,7 +39,6 @@ export const useRegistrationForm = () => {
           role: "TALENT",
         }),
       );
-      console.log("Registered:", data);
       router.push("/user");
     } catch (error) {
       if (error instanceof Error) {

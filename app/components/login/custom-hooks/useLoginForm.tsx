@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { loginUser } from "@/app/services/auth";
 import { useRouter } from "next/navigation";
+import { authStore } from "@/app/shared/authStore";
 
 export const useLoginForm = () => {
   const router = useRouter();
@@ -27,8 +28,7 @@ export const useLoginForm = () => {
         password: formData.password,
       });
 
-      localStorage.setItem(
-        "user",
+      authStore.login(
         JSON.stringify({
           username: user.username,
           role: user.role,
