@@ -3,7 +3,7 @@ import TalentCard from "@/app/components/talents/TalentCard";
 import { getLatestTalents } from "@/app/services/profiles";
 
 export default async function LatestTalents() {
-  const talents = await getLatestTalents(4);
+  const talents = await getLatestTalents(2);
 
   return (
     <div className="w-full py-12 px-6 bg-gray-50">
