@@ -1,22 +1,30 @@
-let currentUser = localStorage.getItem("user");
+// app/shared/authStore.ts
+"use client";
+
 let listeners: (() => void)[] = [];
 
 export const authStore = {
-  getSnapshot: () => !!currentUser,
+  getSnapshot: () => {
+    if (typeof window === "undefined") return false; // SSR safety
+    return !!localStorage.getItem("user");
+  },
+
   subscribe: (callback: () => void) => {
     listeners.push(callback);
     return () => {
       listeners = listeners.filter((l) => l !== callback);
     };
   },
+
   login: (user: string) => {
+    if (typeof window === "undefined") return; // SSR safety
     localStorage.setItem("user", user);
-    currentUser = user;
     listeners.forEach((cb) => cb());
   },
+
   logout: () => {
+    if (typeof window === "undefined") return; // SSR safety
     localStorage.removeItem("user");
-    currentUser = null;
     listeners.forEach((cb) => cb());
   },
 };
