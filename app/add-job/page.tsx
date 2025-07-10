@@ -55,59 +55,61 @@ const JobPostForm = () => {
   };
 
   return (
-    <div className="max-w-xl mx-auto py-10 px-4">
-      <h1 className="text-3xl font-bold mb-6 text-center">Post a New Job</h1>
-      <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+    <div className="max-w-2xl mx-auto px-6 py-10 bg-white rounded-2xl shadow-lg border border-gray-200">
+      <h1 className="text-2xl font-bold mb-6 text-center text-gray-900">
+        💼 დაამატე ახალი ვაკანსია
+      </h1>
+      <form onSubmit={handleSubmit} className="space-y-5">
         <input
           type="text"
           name="title"
-          placeholder="Job Title"
+          placeholder="ვაკანსიის სათაური"
           value={form.title}
           onChange={handleChange}
-          className="border border-gray-300 rounded-lg p-3"
+          className="w-full border border-gray-300 px-4 py-3 rounded-md bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-400"
           required
         />
         <textarea
           name="description"
-          placeholder="Job Description"
+          placeholder="ვაკანსიის აღწერა"
           rows={4}
           value={form.description}
           onChange={handleChange}
-          className="border border-gray-300 rounded-lg p-3"
+          className="w-full border border-gray-300 px-4 py-3 rounded-md bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-400"
           required
         />
         <input
           type="text"
           name="salary"
-          placeholder="Salary Range (e.g., $60k - $90k)"
+          placeholder="ხელფასის დიაპაზონი (მაგ. $60k - $90k)"
           value={form.salary}
           onChange={handleChange}
-          className="border border-gray-300 rounded-lg p-3"
+          className="w-full border border-gray-300 px-4 py-3 rounded-md bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-400"
           required
         />
         <input
           type="text"
           name="company"
-          placeholder="Company Name"
+          placeholder="კომპანიის სახელი"
           value={form.company}
           onChange={handleChange}
-          className="border border-gray-300 rounded-lg p-3"
+          className="w-full border border-gray-300 px-4 py-3 rounded-md bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-400"
           required
         />
         <input
           type="email"
           name="email"
-          placeholder="Company Email"
+          placeholder="ელ.ფოსტა"
           value={form.email}
           onChange={handleChange}
-          className="border border-gray-300 rounded-lg p-3"
+          className="w-full border border-gray-300 px-4 py-3 rounded-md bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-400"
           required
         />
         <button
           type="submit"
-          className="bg-blue-600 text-white rounded-lg py-2 font-semibold hover:bg-blue-700"
+          className="w-full bg-blue-600 text-white font-semibold px-6 py-3 rounded-full hover:bg-blue-700 transition"
         >
-          Post Job
+          დამატება
         </button>
       </form>
     </div>
