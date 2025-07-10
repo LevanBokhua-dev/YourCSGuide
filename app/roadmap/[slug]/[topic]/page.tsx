@@ -26,7 +26,7 @@ export default async function StepPage({
         <h2 className="text-xl font-semibold text-gray-800 mb-4 text-center md:text-left">
           🎥 ვიდეო
         </h2>
-        <div className="aspect-w-16 aspect-h-9 w-full rounded-xl overflow-hidden shadow-lg">
+        <div className="w-full rounded-xl overflow-hidden shadow-lg h-[260px]">
           <iframe
             src={specificTopic.youtubeSrc}
             title="YouTube video player"
