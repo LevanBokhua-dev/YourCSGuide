@@ -14,6 +14,10 @@ export default async function TopicPage({
 
   if (!topic) return notFound();
 
+  // Extract all the step objects from the roadmap object
+  // and cast them to Step[] to match the Roadmap component's prop type.
+  const roadmapSteps: Step[] = Object.values(topic.roadmap);
+
   return (
     <div className="px-6 md:px-20 py-12">
       <TopicHeader
@@ -22,7 +26,7 @@ export default async function TopicPage({
         icon={topic.icon}
         color={topic.color}
       />
-      <Roadmap steps={topic.roadmap as Step[]} />
+      <Roadmap steps={roadmapSteps} /> {/* Pass the extracted array of steps */}
     </div>
   );
 }

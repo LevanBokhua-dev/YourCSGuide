@@ -22,7 +22,6 @@ const StepModal: React.FC<StepModalProps> = ({
   return (
     <div className="fixed inset-0 backdrop-blur-sm bg-white/10 flex items-center justify-center z-50">
       <div className="bg-white rounded-2xl shadow-xl w-[90%] max-w-lg p-6 relative">
-        {/* Close Icon */}
         <button
           onClick={onClose}
           className="absolute right-4 top-4 text-gray-400 hover:text-black text-2xl font-light"
@@ -30,22 +29,18 @@ const StepModal: React.FC<StepModalProps> = ({
           &times;
         </button>
 
-        {/* Title */}
         <h2 className="text-2xl font-bold mb-2 text-gray-900">
           ისწავლე {title}-ის შესახებ
         </h2>
 
-        {/* Description */}
         <p className="text-gray-700 leading-relaxed mb-4">{description}</p>
 
-        {/* Details */}
         {details && (
           <p className="text-gray-600 text-sm leading-relaxed mb-4">
             {details}
           </p>
         )}
 
-        {/* Resource Link */}
         {resource && (
           <a
             href={resource}
@@ -57,7 +52,6 @@ const StepModal: React.FC<StepModalProps> = ({
           </a>
         )}
 
-        {/* Badges */}
         <div className="flex flex-wrap items-center gap-2 mb-6">
           {category && (
             <span className="text-xs px-2 py-1 bg-gray-100 text-gray-700 rounded-full">
@@ -71,7 +65,6 @@ const StepModal: React.FC<StepModalProps> = ({
           )}
         </div>
 
-        {/* Close Button */}
         <div className="flex justify-end">
           <button
             onClick={onClose}
