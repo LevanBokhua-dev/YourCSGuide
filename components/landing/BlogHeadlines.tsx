@@ -7,20 +7,6 @@ const BlogHeadlines = () => {
       <div className="w-full lg:max-w-[900px] sm:max-w-[700px] xs:max-w-[500px] max-w-[320px]">
         <div className="flex justify-center">
           <div className="w-full lg:max-w-[900px] sm:max-w-[700px] xs:max-w-[500px] max-w-[320px] relative inline-block border-2 border-dashed border-blue-300 p-4 rounded-md text-center ">
-            {/* Corner plus signs */}
-            <div className="absolute top-[-16px] left-[-6px] text-blue-400 text-xl font-bold">
-              +
-            </div>
-            <div className="absolute top-[-16px] right-[-6px] text-blue-400 text-xl font-bold">
-              +
-            </div>
-            <div className="absolute bottom-[-16px] left-[-6px] text-blue-400 text-xl font-bold">
-              +
-            </div>
-            <div className="absolute bottom-[-16px] right-[-6px] text-blue-400 text-xl font-bold">
-              +
-            </div>
-
             <div className=" lg:text-4xl sm:text-3xl xs:text-2xl text-lg font-bold text-gray-900">
               ბოლოდროინდელი ბლოგები
             </div>

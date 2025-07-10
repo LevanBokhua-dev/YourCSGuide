@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useAuthStatus } from "@/shared/useAuthStatus";
 import { authStore } from "@/shared/authStore";
+import React from "react";
 
 const Header = () => {
   const isLoggedIn = useAuthStatus();
@@ -33,17 +34,23 @@ const Header = () => {
       </div>
 
       <div className="flex items-center gap-6">
-        <nav className="flex gap-6 text-sm font-medium text-gray-900">
-          <div className="hover:text-blue-600 transition">ჩვენს შესახებ</div>
-        </nav>
-
         {isLoggedIn ? (
-          <button
-            onClick={handleLogout}
-            className="px-4 py-1.5 bg-gray-100 text-sm font-medium text-gray-800 rounded-full hover:bg-gray-200 transition"
-          >
-            გამოსვლა
-          </button>
+          <React.Fragment>
+            <nav className="flex gap-6 text-sm font-medium text-gray-900">
+              <div
+                className="hover:text-blue-600 transition cursor-pointer"
+                onClick={() => router.push("/user")}
+              >
+                კაბინეტი
+              </div>
+            </nav>
+            <button
+              onClick={handleLogout}
+              className="px-4 py-1.5 bg-gray-100 text-sm font-medium text-gray-800 rounded-full hover:bg-gray-200 transition"
+            >
+              გამოსვლა
+            </button>
+          </React.Fragment>
         ) : (
           <button
             onClick={() => router.push("/login")}

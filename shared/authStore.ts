@@ -1,4 +1,3 @@
-// app/shared/authStore.ts
 "use client";
 
 let listeners: (() => void)[] = [];

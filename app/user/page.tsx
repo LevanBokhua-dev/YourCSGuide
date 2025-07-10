@@ -31,7 +31,7 @@ const UserPage = () => {
   return (
     <div className="p-10 text-xl">
       <h1 className="text-2xl font-bold mb-4 capitalize">
-        👋 Welcome, {username || "User"}!
+        👋 მოგესალმები, {username || "User"}!
       </h1>
 
       {role === "TALENT" && (
