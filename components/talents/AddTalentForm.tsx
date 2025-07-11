@@ -43,7 +43,7 @@ export default function AddTalentForm() {
         skills: "",
         email: "",
       });
-      router.push("/add-as-talent");
+      router.push("/talents");
     } catch (error) {
       alert("Failed to submit profile");
       console.error(error);
