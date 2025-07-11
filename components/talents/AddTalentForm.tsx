@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 
 export default function AddTalentForm() {
   const router = useRouter();
+
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -15,14 +16,63 @@ export default function AddTalentForm() {
     email: "",
   });
 
+  const [errors, setErrors] = useState({
+    firstName: "",
+    lastName: "",
+    introduction: "",
+    experience: "",
+    skills: "",
+    email: "",
+  });
+
+  const validate = () => {
+    const newErrors = {
+      firstName:
+        formData.firstName.trim().length < 2 ? "მინიმუმ 2 სიმბოლოა საჭირო" : "",
+      lastName:
+        formData.lastName.trim().length < 2 ? "მინიმუმ 2 სიმბოლოა საჭირო" : "",
+      introduction:
+        formData.introduction.trim().length < 10
+          ? "მინიმუმ 10 სიმბოლოა საჭირო"
+          : "",
+      experience:
+        formData.experience.trim().length < 10
+          ? "მინიმუმ 10 სიმბოლოა საჭირო"
+          : "",
+      skills: formData.skills.trim() === "" ? "უნდა მიუთითოთ უნარები" : "",
+      email: !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)
+        ? "არასწორი ელ.ფოსტის ფორმატი"
+        : "",
+    };
+
+    setErrors(newErrors);
+    return Object.values(newErrors).every((e) => e === "");
+  };
+
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+
+    setErrors((prev) => ({
+      ...prev,
+      [name]: "",
+    }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    const isValid = validate();
+    if (!isValid) {
+      console.warn("Validation failed", errors);
+      return;
+    }
 
     const payload = {
       name: formData.firstName,
@@ -45,8 +95,8 @@ export default function AddTalentForm() {
       });
       router.push("/talents");
     } catch (error) {
-      alert("Failed to submit profile");
-      console.error(error);
+      console.error("Submission failed", error);
+      alert("დაფიქსირდა შეცდომა პროფილის დამატებისას");
     }
   };
 
@@ -57,8 +107,9 @@ export default function AddTalentForm() {
       </h2>
 
       <form onSubmit={handleSubmit} className="space-y-6">
-        {/* Name and Lastname */}
+        {/* First and Last Name */}
         <div className="flex flex-col sm:flex-row gap-4">
+          {/* First Name */}
           <div className="flex flex-col w-full">
             <label
               htmlFor="firstName"
@@ -71,11 +122,14 @@ export default function AddTalentForm() {
               name="firstName"
               value={formData.firstName}
               onChange={handleChange}
-              className="border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400 bg-gray-50"
-              required
+              className="border border-gray-300 rounded-md px-4 py-2 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-400"
             />
+            {errors.firstName && (
+              <p className="text-sm text-red-500 mt-1">{errors.firstName}</p>
+            )}
           </div>
 
+          {/* Last Name */}
           <div className="flex flex-col w-full">
             <label
               htmlFor="lastName"
@@ -88,9 +142,11 @@ export default function AddTalentForm() {
               name="lastName"
               value={formData.lastName}
               onChange={handleChange}
-              className="border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400 bg-gray-50"
-              required
+              className="border border-gray-300 rounded-md px-4 py-2 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-400"
             />
+            {errors.lastName && (
+              <p className="text-sm text-red-500 mt-1">{errors.lastName}</p>
+            )}
           </div>
         </div>
 
@@ -100,7 +156,7 @@ export default function AddTalentForm() {
             htmlFor="introduction"
             className="text-sm font-medium text-gray-700 mb-1 block"
           >
-            შენი თავის მოკლე აღწერა
+            საკუთარი თავის მოკლე აღწერა
           </label>
           <textarea
             id="introduction"
@@ -108,9 +164,11 @@ export default function AddTalentForm() {
             value={formData.introduction}
             onChange={handleChange}
             rows={3}
-            className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400 bg-gray-50"
-            required
+            className="w-full border border-gray-300 rounded-md px-4 py-2 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-400"
           />
+          {errors.introduction && (
+            <p className="text-sm text-red-500 mt-1">{errors.introduction}</p>
+          )}
         </div>
 
         {/* Experience */}
@@ -127,9 +185,11 @@ export default function AddTalentForm() {
             value={formData.experience}
             onChange={handleChange}
             rows={3}
-            className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400 bg-gray-50"
-            required
+            className="w-full border border-gray-300 rounded-md px-4 py-2 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-400"
           />
+          {errors.experience && (
+            <p className="text-sm text-red-500 mt-1">{errors.experience}</p>
+          )}
         </div>
 
         {/* Skills */}
@@ -138,16 +198,18 @@ export default function AddTalentForm() {
             htmlFor="skills"
             className="text-sm font-medium text-gray-700 mb-1 block"
           >
-            უნარ-ჩვევები (მძიმით გამოყოფილი)
+            უნარ-ჩვევები (გამოყავი მძიმით)
           </label>
           <input
             id="skills"
             name="skills"
             value={formData.skills}
             onChange={handleChange}
-            className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400 bg-gray-50"
-            required
+            className="w-full border border-gray-300 rounded-md px-4 py-2 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-400"
           />
+          {errors.skills && (
+            <p className="text-sm text-red-500 mt-1">{errors.skills}</p>
+          )}
         </div>
 
         {/* Email */}
@@ -164,12 +226,13 @@ export default function AddTalentForm() {
             type="email"
             value={formData.email}
             onChange={handleChange}
-            className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400 bg-gray-50"
-            required
+            className="w-full border border-gray-300 rounded-md px-4 py-2 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-400"
           />
+          {errors.email && (
+            <p className="text-sm text-red-500 mt-1">{errors.email}</p>
+          )}
         </div>
 
-        {/* Submit Button */}
         <div className="text-center">
           <button
             type="submit"

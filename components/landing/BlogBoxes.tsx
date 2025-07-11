@@ -26,7 +26,7 @@ const BlogBoxes = ({
   return (
     <div
       onClick={() => router.push(`/blog/${slug}`)}
-      className="sm:flex sm:flex-col justify-between cursor-pointer p-6 rounded-xl shadow-lg bg-white transition hover:shadow-xl w-full max-w-[320px] sm:max-w-sm"
+      className="sm:flex sm:flex-col justify-between cursor-pointer p-6 rounded-xl shadow-lg bg-white transition hover:shadow-xl  max-w-[280px] w-full"
     >
       <div
         className={`px-4 py-1 rounded-full text-white text-sm font-bold  ${HeadlineColor}`}

@@ -13,7 +13,7 @@ const BlogHeadlines = () => {
           </div>
         </div>
 
-        <div className="xs:flex justify-between mt-10 gap-2 ">
+        <div className="xs:flex mt-10 justify-center gap-5">
           <div>
             <BlogBoxes
               TitleText="ტოპ 5 სფერო, რომელიც უნდა გამოიკვლიო კომპიუტერულ მეცნიერებაში"

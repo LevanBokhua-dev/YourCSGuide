@@ -33,7 +33,9 @@ const UserPage = () => {
         </h1>
         <p className="text-gray-700 mb-6">
           შენი როლია:{" "}
-          <span className="font-semibold text-blue-600">{role}</span>
+          <span className="font-semibold text-blue-600">
+            {role === "TALENT" ? "ტალანტი" : "კომპანია"}
+          </span>
         </p>
 
         <div className="mb-6">
@@ -45,7 +47,6 @@ const UserPage = () => {
               🧩 <strong>როლი:</strong>{" "}
               {role === "TALENT" ? "ტალანტი" : "კომპანია"}
             </p>
-            {/* Add more account-related data here if needed */}
           </div>
         </div>
 

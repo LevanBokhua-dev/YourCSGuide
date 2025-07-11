@@ -2,6 +2,7 @@
 
 @theme {
   --breakpoint-xs: 30rem;
+  --breakpoint-xms: 47rem;
 }
 :root {
   --background: #ffffff;
