@@ -36,7 +36,7 @@ export const useRegistrationForm = () => {
         "user",
         JSON.stringify({
           username: formData.fullName,
-          role: "TALENT",
+          role: formData.role.toUpperCase() as "TALENT" | "COMPANY",
         }),
       );
       router.push("/user");

@@ -17,7 +17,7 @@ const RegistrationBox = () => {
         </div>
 
         <div className="w-full">
-          <label className="text-sm text-gray-600">სრული სახელი</label>
+          <label className="text-sm text-gray-600">სახელი</label>
           <input
             type="text"
             name="fullName"
